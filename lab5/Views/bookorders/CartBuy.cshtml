@@ -1,0 +1,29 @@
+﻿@model IEnumerable<lab5.buybook>
+<h1>My Cart</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.Price)</th>
+            <th>@Html.DisplayNameFor(model => model.quant)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                <td>@Html.DisplayFor(modelItem => item.quant)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="CatalogueBuy" asp-controller="orders" class="btn btn-primary">Select More</a>
+</p>
+<h1 style="text-align:center">
+    <a asp-action="Buy" class="btn btn-success">Buy Now</a>
+</h1>
+<p style="color:red"> @ViewData["message"]</p>
