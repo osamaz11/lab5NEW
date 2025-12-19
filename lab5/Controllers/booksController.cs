@@ -91,7 +91,6 @@ namespace lab5.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,title,info,price,discount,pubdate,category,bookquantity,imgfile")] book book)
         {
             if (ModelState.IsValid)
@@ -134,7 +133,6 @@ namespace lab5.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,title,info,price,discount,pubdate,category,bookquantity,imgfile")] book book)
         {
             if (id != book.Id)
@@ -185,7 +183,6 @@ namespace lab5.Controllers
 
         // POST: books/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var book = await _context.book.FindAsync(id);
